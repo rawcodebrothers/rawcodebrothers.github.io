@@ -1,0 +1,49 @@
+---
+import PhaseIcon, { type PhaseIconName } from '@/components/PhaseIcon.astro';
+import type { Phase } from '@/data/site';
+
+interface Props {
+  phases: readonly Phase[];
+  icons: readonly PhaseIconName[];
+}
+
+const { phases, icons } = Astro.props;
+---
+
+<div class="phase-stepper border-b border-border-subtle pb-5">
+  <ol class="flex items-start justify-center">
+    {
+      phases.map((phase, index) => (
+        <>
+          {index > 0 && (
+            <li aria-hidden="true" class="relative mt-3.5 h-px w-6 shrink-0 sm:w-20">
+              <span class="absolute inset-0 border-t border-dashed border-border-strong" />
+              <span
+                data-fill
+                class="absolute inset-y-0 left-0 h-px w-full origin-left bg-brand"
+                style="transform: scaleX(0)"
+              />
+            </li>
+          )}
+          <li
+            data-marker
+            class="flex w-16 shrink-0 flex-col items-center gap-2 sm:w-24"
+          >
+            <PhaseIcon name={icons[index] ?? 'init'} />
+            <span
+              class="phase-label font-mono text-xs text-muted transition-colors duration-300 ease-out-quart"
+            >
+              {phase.call}
+            </span>
+          </li>
+        </>
+      ))
+    }
+  </ol>
+</div>
+
+<style is:global>
+  [data-marker].is-active .phase-label {
+    color: var(--color-foreground);
+  }
+</style>
