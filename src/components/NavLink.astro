@@ -1,0 +1,17 @@
+---
+interface Props {
+  href: string;
+  underline?: 'brand' | 'white';
+  class?: string;
+}
+
+const { href, underline = 'brand', class: className } = Astro.props;
+const bar = underline === 'white' ? 'bg-white' : 'bg-brand';
+---
+
+<a href={href} class={`group relative inline-block ${className ?? ''}`}>
+  <slot />
+  <span
+    class={`absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 ${bar} transition-transform duration-200 ease-out-quart group-hover:scale-x-100`}
+    aria-hidden="true"></span>
+</a>
