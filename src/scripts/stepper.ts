@@ -38,7 +38,10 @@ export function initStepper(): void {
     const travel = root.offsetHeight - sticky.offsetHeight;
     const passed = -root.getBoundingClientRect().top;
     const ratio = travel > 0 ? clamp(passed / travel) : 0;
-    const index = Math.min(slides.length - 1, Math.floor(ratio * slides.length));
+    const index = Math.min(
+      slides.length - 1,
+      Math.floor(ratio * slides.length),
+    );
 
     slides.forEach((slide, at) => {
       slide.classList.toggle(ACTIVE, at === index);
@@ -70,8 +73,7 @@ export function initStepper(): void {
       root.style.removeProperty("height");
       return;
     }
-    const travel =
-      (slides.length - 1) * window.innerHeight * TRAVEL_PER_SLIDE;
+    const travel = (slides.length - 1) * window.innerHeight * TRAVEL_PER_SLIDE;
     root.style.height = `${Math.round(sticky.offsetHeight + travel)}px`;
   };
 
