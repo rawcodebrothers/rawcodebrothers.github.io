@@ -1,0 +1,175 @@
+---
+export type PhaseIconName = 'init' | 'build' | 'ship';
+
+interface Props {
+  name: PhaseIconName;
+}
+
+const { name } = Astro.props;
+---
+
+<span class="phase-icon" data-icon={name} aria-hidden="true">
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    {
+      name === 'init' && (
+        <>
+          <path class="draw" d="M9.5 4H6.5A2.5 2.5 0 0 0 4 6.5v11A2.5 2.5 0 0 0 6.5 20h3" />
+          <path class="draw" d="M14.5 4h3A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-3" />
+          <path class="caret" d="M12 8.5v7" />
+        </>
+      )
+    }
+    {
+      name === 'build' && (
+        <>
+          <rect class="bar" x="4" y="15" width="16" height="4.5" rx="1.25" />
+          <rect class="bar" x="4" y="9.75" width="16" height="4.5" rx="1.25" />
+          <rect class="bar" x="4" y="4.5" width="16" height="4.5" rx="1.25" />
+        </>
+      )
+    }
+    {
+      name === 'ship' && (
+        <>
+          <path class="draw" d="M4 14.5v3A2.5 2.5 0 0 0 6.5 20h11a2.5 2.5 0 0 0 2.5-2.5v-3" />
+          <path class="lift" d="M12 15.5V4.5" />
+          <path class="lift" d="M8 8.5 12 4.5l4 4" />
+        </>
+      )
+    }
+  </svg>
+</span>
+
+<style is:global>
+  .phase-icon {
+    display: inline-flex;
+    height: 1.75rem;
+    width: 1.75rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-muted);
+    transition:
+      color 0.3s var(--ease-out-quart),
+      scale 0.3s var(--ease-out-quart);
+  }
+
+  .is-active .phase-icon {
+    color: var(--color-brand);
+    scale: 1.1;
+  }
+
+  .phase-icon svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  .phase-icon .draw {
+    stroke-dasharray: 46;
+    stroke-dashoffset: 0;
+  }
+
+  .phase-icon .caret,
+  .phase-icon .lift,
+  .phase-icon .bar {
+    opacity: 1;
+  }
+
+  .is-active .phase-icon .draw {
+    animation: phase-draw 0.7s var(--ease-out-quart) 0.15s forwards;
+  }
+
+  .is-active .phase-icon .caret {
+    animation:
+      phase-fade 0.3s ease-out 0.8s forwards,
+      phase-caret 1s steps(2) 1.1s infinite;
+  }
+
+  .is-active .phase-icon .lift {
+    animation: phase-lift 0.6s var(--ease-out-quart) 0.6s forwards;
+  }
+
+  .is-active .phase-icon .bar {
+    animation: phase-stack 0.5s var(--ease-out-quart) forwards;
+  }
+
+  .is-active .phase-icon .bar:nth-of-type(1) {
+    animation-delay: 0.15s;
+  }
+
+  .is-active .phase-icon .bar:nth-of-type(2) {
+    animation-delay: 0.35s;
+  }
+
+  .is-active .phase-icon .bar:nth-of-type(3) {
+    animation-delay: 0.55s;
+  }
+
+  @keyframes phase-draw {
+    from {
+      stroke-dashoffset: 46;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes phase-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes phase-caret {
+    50% {
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes phase-lift {
+    from {
+      opacity: 0;
+      translate: 0 6px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes phase-stack {
+    from {
+      opacity: 0;
+      translate: 0 7px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .phase-icon .draw {
+      stroke-dashoffset: 0;
+    }
+
+    .phase-icon .caret,
+    .phase-icon .lift,
+    .phase-icon .bar {
+      opacity: 1;
+    }
+
+    .is-active .phase-icon * {
+      animation: none;
+    }
+  }
+</style>
