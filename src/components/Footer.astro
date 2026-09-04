@@ -1,0 +1,65 @@
+---
+import Logo from '@/components/Logo.astro';
+import { navLinks, site } from '@/data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border-subtle">
+  <div class="mx-auto max-w-6xl px-6 py-16">
+    <div class="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+      <div class="max-w-xs">
+        <Logo size={46} />
+        <p class="mt-5 text-body text-muted">{site.tagline}</p>
+      </div>
+
+      <div class="flex flex-wrap gap-x-12 gap-y-8 sm:gap-16">
+        <div>
+          <p class="eyebrow">Site</p>
+          <ul class="mt-4 flex flex-col gap-2.5">
+            {
+              navLinks.map((link) => (
+               <li>
+                  <a
+                    href={link.href}
+                    class="inline-block text-sm text-muted transition-all duration-300 hover:translate-x-1 hover:text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <p class="eyebrow">Contato</p>
+          <ul class="mt-4 flex flex-col gap-2.5">
+            <li>
+              <a
+                href={`mailto:${site.email}`}
+                class="nav-label"
+              >
+                {site.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-label"
+              >
+                GitHub
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-14 border-t border-border-subtle pt-8 font-mono text-xs text-muted/70">
+      © {year} {site.name}. Todos os direitos reservados.
+    </p>
+  </div>
+</footer>
