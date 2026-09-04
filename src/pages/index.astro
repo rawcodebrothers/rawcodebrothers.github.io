@@ -1,0 +1,182 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import CodeDivider from '@/components/CodeDivider.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import PersonCard from '@/components/PersonCard.astro';
+import PhaseStepper from '@/components/PhaseStepper.astro';
+import PhasePanel from '@/components/PhasePanel.astro';
+import NavLink from '@/components/NavLink.astro';
+import ScrambleText from '@/components/ScrambleText.astro';
+import type { PhaseIconName } from '@/components/PhaseIcon.astro';
+import { phases, projects, services, site, team } from '@/data/site';
+
+const phaseIcons: readonly PhaseIconName[] = ['init', 'build', 'ship'];
+---
+
+<Layout>
+  <section class="relative flex w-full flex-col items-center pb-16 pt-24 text-center sm:pt-32" data-reveal>
+    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none flex justify-center opacity-30">
+      <div class="w-full max-w-[1200px] h-full bg-[url('/raw-bg-01.png')] bg-cover bg-center bg-no-repeat [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)]"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-6">
+      <p class="mb-6 font-mono text-[11px] font-bold tracking-[0.2em] text-brand uppercase">
+        Software de alto nível
+      </p>
+
+      <h1 class="mx-auto max-w-4xl font-heading text-heading font-medium tracking-[0.16px] text-foreground sm:text-display">
+        Software sob medida,<br class="hidden sm:block" /> escrito por quem <span
+          class="text-brand">lê o código depois.</span
+        >
+      </h1>
+      <p class="mx-auto mt-8 max-w-2xl text-body text-muted sm:text-lead">
+        Construímos produtos para empresas e microempreendedores.<br
+          class="hidden sm:block"
+        /> Arquitetura moderna, tipagem de ponta a ponta e testes automatizados.<br
+          class="hidden sm:block"
+        /> <strong class="font-medium text-foreground">Sem ruído, só código.</strong>
+      </p>
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-8">
+        <a
+          href={`mailto:${site.email}`}
+          class="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-xs font-bold tracking-widest text-[#2e3a06] transition-[opacity,box-shadow] duration-150 ease-out-quart hover:opacity-95 hover:shadow-[0_0_28px_-6px_rgba(255,255,255,0.45)]"
+        >
+          <ScrambleText text="FALAR COM O TIME" />
+          <svg
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+          </svg>
+        </a>
+        <NavLink
+          href="#projetos"
+          class="text-xs font-bold tracking-widest text-muted transition-colors duration-150 ease-out-quart hover:text-white"
+          underline="white"
+        >
+          <ScrambleText text="VER PROJETOS" />
+        </NavLink>
+      </div>
+    </div>
+  </section>
+
+  <CodeDivider call='const services = await labs.load("services");' />
+
+  <section id="servicos" class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div data-reveal>
+      <SectionHeading
+        eyebrow="Serviços"
+        title="O que a gente entrega"
+        mascot
+        lead="Quatro frentes de trabalho. Cada projeto usa uma ou várias, conforme o problema exige."
+      />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {services.map((service, index) => (
+        <div data-reveal style={`transition-delay: ${index * 150}ms`}>
+          <ServiceCard service={service} index={index} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CodeDivider call='const process = await labs.load("process");' />
+
+  <section id="processo" class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div
+      class="phase-scroll"
+      data-stepper
+      style={`--slides: ${phases.length}`}
+    >
+      <div class="phase-sticky mx-auto max-w-3xl">
+        <div data-reveal>
+          <SectionHeading
+            eyebrow="Processo"
+            title="Como a gente trabalha"
+            mascot
+            mascotCycle={1.35}
+            lead="Três fases, do primeiro contato ao produto no ar. De um lado o jeito de sempre, do outro o nosso."
+          />
+        </div>
+
+        <PhaseStepper phases={phases} icons={phaseIcons} />
+
+        <div class="phase-slides divide-y divide-border-subtle md:divide-y-0">
+          {phases.map((phase) => <PhasePanel phase={phase} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CodeDivider call='const projects = await labs.load("projects");' />
+
+  <section id="projetos" class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div data-reveal>
+      <SectionHeading
+        eyebrow="Projetos"
+        title="O que já está rodando"
+        mascot
+        mascotCycle={2.1}
+        lead="Produtos que construímos e mantemos. Alguns para clientes, outros nossos."
+      />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {projects.map((project, index) => (
+        <div data-reveal style={`transition-delay: ${index * 150}ms`}>
+          <ProjectCard project={project} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CodeDivider call='const team = await labs.load("team");' />
+
+  <section id="time" class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div data-reveal>
+      <SectionHeading
+        eyebrow="Time"
+        title="Quem está por trás"
+        mascot
+        mascotCycle={1.55}
+        lead="Dois engenheiros com mais de vinte anos somados de código em produção. Você fala direto com quem escreve."
+      />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {team.map((person, index) => (
+        <div data-reveal style={`transition-delay: ${index * 150}ms`}>
+          <PersonCard person={person} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-28 sm:py-36" data-reveal>
+    <div
+      class="card-gradient rounded-3xl border border-border-subtle px-8 py-16 text-center sm:px-16"
+    >
+      <h2
+        class="mx-auto max-w-xl font-heading text-section font-medium tracking-[0.16px] text-foreground sm:text-heading"
+      >
+        Vamos conversar sobre o seu produto?
+      </h2>
+      <p class="mx-auto mt-5 max-w-md text-body text-muted">
+        Conte o problema. A gente responde com o escopo, o prazo e o preço.
+      </p>
+      <a
+        href={`mailto:${site.email}`}
+        class="mt-9 inline-flex items-center rounded-full bg-brand px-8 py-4 text-xs font-bold tracking-widest text-brand-foreground transition-colors duration-200 ease-out-quart hover:bg-brand-soft"
+      >
+        <ScrambleText text="FALAR COM O TIME" />
+      </a>
+    </div>
+  </section>
+</Layout>
