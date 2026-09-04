@@ -1,0 +1,18 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const NBSP = ' ';
+
+const { text, class: className } = Astro.props;
+const letters = [...text].map((letter) => (letter === ' ' ? NBSP : letter));
+---
+
+<span class={`inline-flex ${className ?? ''}`} data-scramble>
+  <span class="sr-only">{text}</span>
+  <span class="inline-flex" aria-hidden="true">
+    {letters.map((letter) => <span class="font-mono" data-letter={letter}>{letter}</span>)}
+  </span>
+</span>
