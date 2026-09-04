@@ -1,0 +1,28 @@
+{
+  "name": "rawcodelabs-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write .",
+    "lint": "astro lint"
+  },
+  "keywords": [],
+  "author": "Simão Júnior",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.1"
+  }
+}
