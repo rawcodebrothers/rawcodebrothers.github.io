@@ -1,0 +1,60 @@
+---
+import iconMarkup from '@/icons/logo-icon.svg?raw';
+
+interface Props {
+  size: number;
+  class?: string;
+}
+
+const { size, class: className } = Astro.props;
+---
+
+<span
+  class={`rcl-icon inline-block ${className ?? ''}`}
+  style={`height: ${size}px; width: ${Math.round((size * 626) / 407)}px;`}
+  aria-hidden="true"
+  set:html={iconMarkup}
+/>
+
+<style is:global>
+  .rcl-icon {
+    --rcl-cycle: 3s;
+    --rcl-base: 0.82;
+  }
+
+  .rcl-icon svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .rcl-icon .rcl-part {
+    opacity: var(--rcl-base);
+    animation: rcl-ripple var(--rcl-cycle) ease-in-out infinite;
+    animation-delay: calc(var(--ring, 0) * 0.16 * var(--rcl-cycle));
+    will-change: opacity;
+  }
+
+  .group:hover .rcl-icon,
+  .rcl-icon:hover {
+    --rcl-cycle: 1.2s;
+    --rcl-base: 0.32;
+  }
+
+  @keyframes rcl-ripple {
+    0%,
+    100% {
+      opacity: var(--rcl-base);
+    }
+    34% {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rcl-icon .rcl-part {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>
