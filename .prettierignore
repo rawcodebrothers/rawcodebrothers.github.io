@@ -1,0 +1,6 @@
+bun.lock
+dist/
+.astro/
+public/logos/
+public/*.svg
+src/icons/
