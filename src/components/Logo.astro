@@ -1,0 +1,63 @@
+---
+import LogoIcon from '@/components/LogoIcon.astro';
+import { activeLogo, logos, type LogoVersion } from '@/data/logos';
+
+interface Props {
+  version?: LogoVersion;
+  variant?: 'lockup' | 'stacked';
+  size?: number;
+  class?: string;
+}
+
+const {
+  version = activeLogo,
+  variant = 'lockup',
+  size = 34,
+  class: className,
+} = Astro.props;
+
+const logo = logos[version];
+const icon = variant === 'lockup' ? logo.icon : undefined;
+
+const round = (value: number): string => `${Math.round(value * 100) / 100}px`;
+const wordSize = round(size * 0.42);
+const labsSize = round(size * 0.235);
+const gap = round(size * 0.3);
+---
+
+{
+  icon ? (
+    <span
+      class={`group inline-flex items-center ${className ?? ''}`}
+      style={`gap: ${gap}`}
+    >
+      <LogoIcon size={size} />
+      <span class="flex flex-col justify-center">
+        <span class="sr-only">Raw Code Labs</span>
+        <span
+          aria-hidden="true"
+          class="font-display font-semibold uppercase leading-none text-foreground"
+          style={`font-size: ${wordSize}; letter-spacing: 0.06em;`}
+        >
+          Raw<span class="text-brand">code</span>
+        </span>
+        <span
+          aria-hidden="true"
+          class="font-mono uppercase leading-none text-brand"
+          style={`font-size: ${labsSize}; letter-spacing: 0.38em; margin-top: ${round(size * 0.11)};`}
+        >
+          Labs
+        </span>
+      </span>
+    </span>
+  ) : (
+    <img
+      src={logo.stacked.src}
+      alt="Raw Code Labs"
+      width={logo.stacked.width}
+      height={logo.stacked.height}
+      style={`height: ${round(size)}; width: auto;`}
+      class={className}
+    />
+  )
+}
