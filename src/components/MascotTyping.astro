@@ -1,0 +1,105 @@
+---
+import mascotMarkup from '@/icons/mascot-typing.svg?raw';
+
+interface Props {
+  size?: number;
+  cycle?: number;
+  class?: string;
+}
+
+const { size = 96, cycle = 1.8, class: className } = Astro.props;
+---
+
+<span
+  class={`mascot text-brand ${className ?? ''}`}
+  style={`width: ${Math.round(size * 1.2)}px; height: ${size}px; --type-cycle: ${cycle}s;`}
+  aria-hidden="true"
+  set:html={mascotMarkup}
+/>
+
+<style is:global>
+  .mascot {
+    --type-cycle: 1.8s;
+    display: inline-block;
+  }
+
+  .mascot > svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .mascot .key {
+    opacity: 0.22;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: mascot-key var(--type-cycle) steps(1, end) infinite;
+    animation-delay: calc(var(--k, 0) * var(--type-cycle) / 12);
+  }
+
+  .mascot .mascot-face {
+    animation: mascot-nod calc(var(--type-cycle) * 2) ease-in-out infinite;
+    transform-box: view-box;
+    transform-origin: 60px 30px;
+  }
+
+  .mascot [data-part='eye-left'],
+  .mascot [data-part='eye-right'] {
+    animation: mascot-blink calc(var(--type-cycle) * 3) steps(1, end) infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  @keyframes mascot-key {
+    0% {
+      opacity: 1;
+      translate: 0 1.5px;
+    }
+    8% {
+      opacity: 0.55;
+      translate: 0 0;
+    }
+    16%,
+    100% {
+      opacity: 0.22;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes mascot-nod {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 1.5px;
+    }
+  }
+
+  @keyframes mascot-blink {
+    0%,
+    92% {
+      scale: 1 1;
+    }
+    95% {
+      scale: 1 0.12;
+    }
+    98%,
+    100% {
+      scale: 1 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mascot .key {
+      animation: none;
+      opacity: 0.55;
+    }
+
+    .mascot .mascot-face,
+    .mascot [data-part='eye-left'],
+    .mascot [data-part='eye-right'] {
+      animation: none;
+    }
+  }
+</style>
