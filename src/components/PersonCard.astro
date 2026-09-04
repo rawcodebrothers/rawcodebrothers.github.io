@@ -1,0 +1,52 @@
+---
+import type { Person } from '@/data/site';
+
+interface Props {
+  person: Person;
+}
+
+const { person } = Astro.props;
+---
+
+<article
+  class="group card-gradient flex h-full flex-col rounded-2xl border border-border-subtle p-8"
+>
+  <div class="flex items-center gap-4">
+    <img
+      src={person.avatar}
+      alt={`Foto de ${person.name}`}
+      width="160"
+      height="160"
+      loading="lazy"
+      decoding="async"
+      class="h-14 w-14 shrink-0 rounded-full border border-border-strong bg-elevated object-cover"
+    />
+    <div>
+      <h3 class="font-display text-title font-medium tracking-tight text-foreground">
+        {person.name}
+      </h3>
+      <p class="mt-0.5 text-sm text-muted">{person.role}</p>
+    </div>
+  </div>
+
+  <div class="mt-6 flex flex-1 flex-col gap-4">
+    {person.bio.map((paragraph) => <p class="text-body text-muted">{paragraph}</p>)}
+  </div>
+
+  <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 border-t border-border-subtle pt-5">
+    {
+      person.links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-mono text-xs text-muted underline-offset-4 transition-colors hover:text-brand hover:underline"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</article>
