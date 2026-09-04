@@ -1,0 +1,58 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Logo from '@/components/Logo.astro';
+import { activeLogo, logos, logoVersions } from '@/data/logos';
+
+const sizes = [
+  { label: 'Barra, 34px', size: 34 },
+  { label: 'Barra alta, 48px', size: 48 },
+  { label: 'Rodapé, 64px', size: 64 },
+  { label: 'Herói, 112px', size: 112 },
+];
+---
+
+<Layout title="Raw Code Labs — Versões do logo" description="Comparação das versões do logo.">
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <p class="eyebrow">Marca</p>
+    <h1 class="mt-4 font-heading text-4xl font-semibold tracking-tight text-foreground">
+      Versões do logo
+    </h1>
+    <p class="mt-5 max-w-2xl text-base leading-relaxed text-muted">
+      Cada versão está recortada no conteúdo, sem o espaço vazio do quadrado original.
+      A versão em uso no site é a <code class="font-mono text-brand">{activeLogo}</code>.
+      Para trocar, mude <code class="font-mono text-foreground">activeLogo</code> em
+      <code class="font-mono text-foreground">src/data/logos.ts</code>.
+    </p>
+
+    <div class="mt-16 flex flex-col gap-6">
+      {
+        logoVersions.map((version) => (
+          <article
+            class={`card-gradient rounded-2xl border p-8 ${
+              version === activeLogo ? 'border-brand/50' : 'border-border-subtle'
+            }`}
+          >
+            <div class="flex flex-wrap items-baseline gap-3">
+              <h2 class="font-mono text-sm text-brand">{version}</h2>
+              <p class="text-sm text-muted">{logos[version].note}</p>
+              {version === activeLogo && (
+                <span class="rounded-full bg-brand px-2.5 py-0.5 font-mono text-xs text-brand-foreground">
+                  em uso
+                </span>
+              )}
+            </div>
+
+            <div class="mt-8 flex flex-wrap items-end gap-x-12 gap-y-8">
+              {sizes.map((size) => (
+                <div class="flex flex-col gap-3">
+                  <Logo version={version} size={size.size} />
+                  <span class="font-mono text-xs text-muted">{size.label}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
