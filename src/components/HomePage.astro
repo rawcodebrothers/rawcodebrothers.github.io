@@ -152,6 +152,7 @@ const [servicesId, processId, projectsId, teamId] = ids;
             <ProjectCard
               project={project}
               statusLabel={project.live ? t.ui.statusLive : t.ui.statusBuilding}
+              kindLabel={project.kind === "client" ? t.ui.kindClient : t.ui.kindOwn}
             />
           </div>
         ))
