@@ -1,15 +1,15 @@
-const OPEN_LABEL = "Abrir menu";
-const CLOSE_LABEL = "Fechar menu";
-
 export function initMenu(): void {
   const toggle = document.querySelector<HTMLButtonElement>("#menu-toggle");
   const panel = document.querySelector<HTMLElement>("#menu-mobile");
   if (toggle === null || panel === null) return;
 
+  const openLabel = toggle.dataset.labelOpen ?? "Open menu";
+  const closeLabel = toggle.dataset.labelClose ?? "Close menu";
+
   const setOpen = (open: boolean): void => {
     panel.hidden = !open;
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? CLOSE_LABEL : OPEN_LABEL);
+    toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
   };
 
   toggle.addEventListener("click", () => {
