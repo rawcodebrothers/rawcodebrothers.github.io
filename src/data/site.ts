@@ -28,13 +28,13 @@ export type Person = {
 };
 
 export const site = {
-  name: "Raw Code Labs",
+  name: "Raw Code Brothers",
   tagline:
     "Building clean, efficient, and robust software. No noise, just raw code.",
   description:
     "Estúdio de software que constrói produtos sob medida para empresas e microempreendedores. Arquitetura moderna, código legível e entrega contínua.",
   email: "simao.msjr@gmail.com",
-  github: "https://github.com/Raw-Code-Labs",
+  github: "https://github.com/rawcodebrothers",
 } as const;
 
 export const navLinks: readonly NavLink[] = [
