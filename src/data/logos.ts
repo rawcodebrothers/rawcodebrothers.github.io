@@ -1,4 +1,5 @@
-export type LogoVersion = "v0" | "v1" | "v2" | "v3" | "v4" | "v5" | "v6" | "v7";
+export type LogoVersion =
+  "v0" | "v1" | "v2" | "v3" | "v4" | "v5" | "v6" | "v7" | "v8";
 
 export type LogoPart = {
   readonly src: string;
@@ -46,8 +47,13 @@ export const logos: Readonly<Record<LogoVersion, LogoAsset>> = {
     stacked: { src: "/logos/v7.svg", width: 1137, height: 340 },
     note: "Lockup horizontal nativo",
   },
+  v8: {
+    stacked: { src: "/logos/v8.svg", width: 628, height: 674 },
+    icon: { src: "/logos/v8-icon.svg", width: 626, height: 407 },
+    note: "Chaves com olhos, com o nome Brothers na arte",
+  },
 };
 
 export const logoVersions = Object.keys(logos) as readonly LogoVersion[];
 
-export const activeLogo: LogoVersion = "v0";
+export const activeLogo: LogoVersion = "v8";
