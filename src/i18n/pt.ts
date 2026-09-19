@@ -20,6 +20,8 @@ export const pt: Content = {
     seeProjects: "VER PROJETOS",
     statusLive: "no ar",
     statusBuilding: "em construção",
+    kindClient: "para cliente",
+    kindOwn: "produto nosso",
     usualWay: "Como costuma ser",
     ourWay: "Com a",
     switchTo: "English",
@@ -123,34 +125,52 @@ export const pt: Content = {
     {
       name: "Lojinha da Carlota",
       summary:
-        "Loja de cosméticos com catálogo, carrinho e fechamento de pedido pelo WhatsApp. Feita para quem vende sozinha e não quer gerenciar checkout.",
-      tags: ["SvelteKit", "TypeScript", "PostgreSQL"],
+        "Loja de cosméticos que vende sem checkout. A cliente monta o carrinho no catálogo e fecha o pedido pelo WhatsApp, então quem vende não precisa administrar pagamento online nem conciliar recebimento.",
+      tags: ["Astro", "React", "Tailwind", "Cloudflare Pages"],
       href: "https://lojinhadacarlota.app/",
       live: true,
+      kind: "client",
     },
     {
       name: "Sunshine Contabilidade",
       summary:
-        "Presença digital de um escritório contábil com mais de 500 clientes. Captação de contato e apresentação clara dos serviços.",
+        "Presença digital de um escritório contábil com mais de 500 clientes. Apresenta os serviços e capta contato, com estrutura de conteúdo feita para ranquear nas buscas da região.",
       tags: ["Astro", "TypeScript", "SEO"],
       href: "https://www.sunshinecontabilidade.com/",
       live: true,
+      kind: "client",
+    },
+    {
+      name: "Gramo.studio",
+      summary:
+        "Estuda o que funciona em vídeo curto no Instagram, TikTok e YouTube, propõe ideias adaptadas à marca de quem usa e entrega a peça pronta para publicar. O método foi validado em dez perfis antes de virar plataforma.",
+      tags: ["Svelte", "TypeScript", "Python", "PostgreSQL", "Multi-tenant"],
+      live: false,
+      kind: "own",
     },
     {
       name: "A Mente do Tatame",
       summary:
-        "Plataforma de conteúdo sobre neurociência aplicada ao jiu-jitsu. Newsletter, acervo de artigos e venda de livros digitais.",
-      tags: ["Conteúdo", "Newsletter", "Produtos digitais"],
+        "Traduz pesquisa de aprendizado motor em método prático para o jiu-jitsu. Vende livros digitais com cartão e PIX, e entrega o arquivo por link assinado que expira. Cobrança repetida não gera entrega duplicada.",
+      tags: ["Next.js", "Cloudflare", "Stripe", "PIX", "D1"],
       href: "https://amentedotatame.com/",
       live: true,
+      kind: "own",
     },
     {
       name: "Lumoki",
       summary:
-        "Aplicativo de acompanhamento de saúde mental. Registro diário, leitura de padrões e lembretes que respeitam a rotina de quem usa.",
-      tags: ["Expo", "TypeScript", "React Native"],
+        "Acompanhamento de saúde mental com um bicho virtual que evolui junto com o cuidado de quem usa. Acesso a ajuda em crise, acessibilidade e linguagem que não julga entraram como requisito, não como ajuste depois.",
+      tags: [
+        "React Native",
+        "Hono",
+        "PostgreSQL",
+        "Cloudflare Workers",
+        "Filas",
+      ],
       href: "https://lumoki.app/",
       live: false,
+      kind: "own",
     },
   ],
   team: [
