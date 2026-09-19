@@ -15,12 +15,15 @@ export type Service = {
   readonly bullets: readonly string[];
 };
 
+export type ProjectKind = "client" | "own";
+
 export type Project = {
   readonly name: string;
   readonly summary: string;
   readonly tags: readonly string[];
-  readonly href: string;
+  readonly href?: string;
   readonly live: boolean;
+  readonly kind: ProjectKind;
 };
 
 export type Person = {
@@ -64,6 +67,8 @@ export type Content = {
     readonly seeProjects: string;
     readonly statusLive: string;
     readonly statusBuilding: string;
+    readonly kindClient: string;
+    readonly kindOwn: string;
     readonly usualWay: string;
     readonly ourWay: string;
     readonly switchTo: string;
