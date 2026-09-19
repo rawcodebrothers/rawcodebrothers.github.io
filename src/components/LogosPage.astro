@@ -1,0 +1,64 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Logo from '@/components/Logo.astro';
+import { activeLogo, logos, logoVersions } from '@/data/logos';
+import { getContent, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getContent(locale);
+const sizes = [34, 48, 64, 112];
+---
+
+<Layout
+  locale={locale}
+  path="/logos/"
+  title={t.logosPage.title}
+  description={t.logosPage.description}
+>
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <p class="eyebrow">{t.logosPage.eyebrow}</p>
+    <h1
+      class="mt-4 font-heading text-4xl font-semibold tracking-tight text-foreground"
+    >
+      {t.logosPage.heading}
+    </h1>
+    <p class="mt-5 max-w-2xl text-body text-muted">{t.logosPage.lead}</p>
+
+    <div class="mt-16 flex flex-col gap-6">
+      {
+        logoVersions.map((version) => (
+          <article
+            class={`card-gradient rounded-2xl border p-8 ${
+              version === activeLogo ? 'border-brand/50' : 'border-border-subtle'
+            }`}
+          >
+            <div class="flex flex-wrap items-baseline gap-3">
+              <h2 class="font-mono text-sm text-brand">{version}</h2>
+              <p class="text-sm text-muted">{logos[version].note}</p>
+              {version === activeLogo && (
+                <span class="rounded-full bg-brand px-2.5 py-0.5 font-mono text-xs text-brand-foreground">
+                  {t.logosPage.inUse}
+                </span>
+              )}
+            </div>
+
+            <div class="mt-8 flex flex-wrap items-end gap-x-12 gap-y-8">
+              {sizes.map((size, index) => (
+                <div class="flex flex-col gap-3">
+                  <Logo version={version} size={size} />
+                  <span class="font-mono text-xs text-muted">
+                    {t.logosPage.sizes[index]}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

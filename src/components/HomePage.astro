@@ -1,0 +1,198 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import CodeDivider from '@/components/CodeDivider.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import PersonCard from '@/components/PersonCard.astro';
+import PhaseStepper from '@/components/PhaseStepper.astro';
+import PhasePanel from '@/components/PhasePanel.astro';
+import NavLink from '@/components/NavLink.astro';
+import ScrambleText from '@/components/ScrambleText.astro';
+import type { PhaseIconName } from '@/components/PhaseIcon.astro';
+import { getContent, site, type Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getContent(locale);
+
+const phaseIcons: readonly PhaseIconName[] = ['init', 'build', 'ship'];
+const ids = t.nav.map((link) => link.href.slice(1));
+const [servicesId, processId, projectsId, teamId] = ids;
+---
+
+<Layout locale={locale}>
+  <section
+    class="relative flex w-full flex-col items-center pb-16 pt-24 text-center sm:pt-32"
+    data-reveal
+  >
+    <div
+      class="pointer-events-none absolute inset-0 -z-10 flex justify-center overflow-hidden opacity-30"
+    >
+      <div
+        class="h-full w-full max-w-[1200px] bg-[url('/raw-bg-01.png')] bg-cover bg-center bg-no-repeat [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)]"
+      >
+      </div>
+    </div>
+
+    <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-6">
+      <p
+        class="mb-6 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-brand"
+      >
+        {t.hero.eyebrow}
+      </p>
+
+      <h1
+        class="mx-auto max-w-4xl font-heading text-heading font-medium tracking-[0.16px] text-foreground sm:text-display"
+      >
+        {t.hero.titleLead}{' '}<span class="text-brand">{t.hero.titleAccent}</span>
+      </h1>
+
+      <p class="mx-auto mt-8 max-w-2xl text-body text-muted sm:text-lead">
+        {
+          t.hero.body.map((line) => (
+            <>
+              {line}
+              <br class="hidden sm:block" />{' '}
+            </>
+          ))
+        }
+        <strong class="font-medium text-foreground">{t.hero.bodyStrong}</strong>
+      </p>
+
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-8">
+        <a
+          href={`mailto:${site.email}`}
+          class="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-xs font-bold tracking-widest text-[#2e3a06] transition-[opacity,box-shadow] duration-150 ease-out-quart hover:opacity-95 hover:shadow-[0_0_28px_-6px_rgba(255,255,255,0.45)]"
+        >
+          <ScrambleText text={t.ui.contact} />
+          <svg
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+          </svg>
+        </a>
+        <NavLink
+          href={`#${projectsId}`}
+          class="text-xs font-bold tracking-widest text-muted transition-colors duration-150 ease-out-quart hover:text-white"
+          underline="white"
+        >
+          <ScrambleText text={t.ui.seeProjects} />
+        </NavLink>
+      </div>
+    </div>
+  </section>
+
+  <CodeDivider call='const services = await brothers.load("services");' />
+
+  <section id={servicesId} class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div data-reveal>
+      <SectionHeading section={t.sections.services} mascot />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {
+        t.services.map((service, index) => (
+          <div data-reveal style={`transition-delay: ${index * 150}ms`}>
+            <ServiceCard service={service} index={index} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CodeDivider call='const process = await brothers.load("process");' />
+
+  <section id={processId} class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div class="phase-scroll" data-stepper style={`--slides: ${t.phases.length}`}>
+      <div class="phase-sticky mx-auto max-w-3xl">
+        <div data-reveal>
+          <SectionHeading section={t.sections.process} mascot mascotCycle={1.35} />
+        </div>
+
+        <PhaseStepper phases={t.phases} icons={phaseIcons} />
+
+        <div class="phase-slides divide-y divide-border-subtle md:divide-y-0">
+          {
+            t.phases.map((phase) => (
+              <PhasePanel
+                phase={phase}
+                usualLabel={t.ui.usualWay}
+                ourLabel={t.ui.ourWay}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CodeDivider call='const projects = await brothers.load("projects");' />
+
+  <section id={projectsId} class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div data-reveal>
+      <SectionHeading section={t.sections.projects} mascot mascotCycle={2.1} />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {
+        t.projects.map((project, index) => (
+          <div data-reveal style={`transition-delay: ${index * 150}ms`}>
+            <ProjectCard
+              project={project}
+              statusLabel={project.live ? t.ui.statusLive : t.ui.statusBuilding}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CodeDivider call='const team = await brothers.load("team");' />
+
+  <section id={teamId} class="mx-auto max-w-6xl scroll-mt-24 px-6">
+    <div data-reveal>
+      <SectionHeading section={t.sections.team} mascot mascotCycle={1.55} />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {
+        t.team.map((person, index) => (
+          <div data-reveal style={`transition-delay: ${index * 150}ms`}>
+            <PersonCard person={person} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-28 sm:py-36" data-reveal>
+    <div
+      class="card-gradient rounded-3xl border border-border-subtle px-8 py-16 text-center sm:px-16"
+    >
+      <h2
+        class="mx-auto max-w-xl font-heading text-section font-medium tracking-[0.16px] text-foreground sm:text-heading"
+      >
+        {t.cta.title}
+      </h2>
+      <p class="mx-auto mt-5 max-w-md text-body text-muted">{t.cta.body}</p>
+      <a
+        href={`mailto:${site.email}`}
+        class="mt-9 inline-flex items-center rounded-full bg-brand px-8 py-4 text-xs font-bold tracking-widest text-brand-foreground transition-colors duration-200 ease-out-quart hover:bg-brand-soft"
+      >
+        <ScrambleText text={t.ui.contact} />
+      </a>
+    </div>
+  </section>
+</Layout>
