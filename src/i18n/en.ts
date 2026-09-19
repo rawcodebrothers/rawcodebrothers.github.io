@@ -20,6 +20,8 @@ export const en: Content = {
     seeProjects: "SEE PROJECTS",
     statusLive: "live",
     statusBuilding: "in progress",
+    kindClient: "for a client",
+    kindOwn: "our own",
     usualWay: "How it usually goes",
     ourWay: "With",
     switchTo: "Português",
@@ -123,34 +125,52 @@ export const en: Content = {
     {
       name: "Lojinha da Carlota",
       summary:
-        "A cosmetics shop with a catalogue, a cart and order checkout over WhatsApp. Built for someone who sells alone and does not want to run a checkout.",
-      tags: ["SvelteKit", "TypeScript", "PostgreSQL"],
+        "A cosmetics shop that sells without a checkout. The customer fills a cart from the catalogue and closes the order over WhatsApp, so the seller never has to run online payments or reconcile receipts.",
+      tags: ["Astro", "React", "Tailwind", "Cloudflare Pages"],
       href: "https://lojinhadacarlota.app/",
       live: true,
+      kind: "client",
     },
     {
       name: "Sunshine Contabilidade",
       summary:
-        "The digital presence of an accounting firm with more than 500 clients. Lead capture and a clear view of what they offer.",
+        "The digital presence of an accounting firm with more than 500 clients. It presents the services and captures leads, with a content structure built to rank in local search.",
       tags: ["Astro", "TypeScript", "SEO"],
       href: "https://www.sunshinecontabilidade.com/",
       live: true,
+      kind: "client",
+    },
+    {
+      name: "Gramo.studio",
+      summary:
+        "It studies what works in short-form video on Instagram, TikTok and YouTube, proposes ideas adapted to the brand behind the account and delivers the asset ready to publish. The method ran on ten feeds before it became a platform.",
+      tags: ["Svelte", "TypeScript", "Python", "PostgreSQL", "Multi-tenant"],
+      live: false,
+      kind: "own",
     },
     {
       name: "A Mente do Tatame",
       summary:
-        "A content platform on the neuroscience of learning applied to jiu-jitsu. Newsletter, article archive and digital books.",
-      tags: ["Content", "Newsletter", "Digital products"],
+        "It turns motor learning research into a practical method for Brazilian jiu-jitsu. It sells digital books with card and PIX, and delivers the file through a signed link that expires. A repeated charge never produces a second delivery.",
+      tags: ["Next.js", "Cloudflare", "Stripe", "PIX", "D1"],
       href: "https://amentedotatame.com/",
       live: true,
+      kind: "own",
     },
     {
       name: "Lumoki",
       summary:
-        "A mental health tracking app. Daily check-ins, pattern reading and reminders that respect the routine of the person using it.",
-      tags: ["Expo", "TypeScript", "React Native"],
+        "Mental health tracking with a virtual companion that grows alongside the care someone gives themselves. Crisis access, accessibility and language that does not judge went in as requirements, not as a later fix.",
+      tags: [
+        "React Native",
+        "Hono",
+        "PostgreSQL",
+        "Cloudflare Workers",
+        "Queues",
+      ],
       href: "https://lumoki.app/",
       live: false,
+      kind: "own",
     },
   ],
   team: [
