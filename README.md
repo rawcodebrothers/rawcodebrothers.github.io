@@ -1,6 +1,6 @@
-# rawcodelabs.github.io
+# rawcodebrothers.github.io
 
-Site da Raw Code Labs, no ar em <https://rawcodelabs.github.io>.
+Site da Raw Code Brothers, no ar em <https://rawcodebrothers.github.io>.
 
 Construído com [Astro](https://astro.build) e [Tailwind CSS](https://tailwindcss.com).
 Páginas estáticas, sem framework de interface: o JavaScript que vai para o
