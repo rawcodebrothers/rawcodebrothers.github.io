@@ -1,26 +1,25 @@
 ---
 import MascotTyping from '@/components/MascotTyping.astro';
+import type { Section } from '@/i18n';
 
 interface Props {
-  eyebrow: string;
-  title: string;
-  lead?: string;
+  section: Section;
   mascot?: boolean;
   mascotCycle?: number;
 }
 
-const { eyebrow, title, lead, mascot = false, mascotCycle = 1.8 } = Astro.props;
+const { section, mascot = false, mascotCycle = 1.8 } = Astro.props;
 ---
 
 <div class="mx-auto max-w-2xl text-center">
-  <p class="eyebrow">{eyebrow}</p>
+  <p class="eyebrow">{section.eyebrow}</p>
   <div class="mt-4 flex items-center justify-center gap-4">
     <h2
       class="font-heading text-section font-medium tracking-[0.16px] text-foreground sm:text-heading"
     >
-      {title}
+      {section.title}
     </h2>
     {mascot && <MascotTyping size={54} cycle={mascotCycle} class="shrink-0" />}
   </div>
-  {lead && <p class="mx-auto mt-5 text-body text-muted sm:text-lead">{lead}</p>}
+  <p class="mx-auto mt-5 text-body text-muted sm:text-lead">{section.lead}</p>
 </div>
