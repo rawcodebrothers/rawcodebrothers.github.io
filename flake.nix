@@ -21,7 +21,7 @@
         in
         {
           default = mkShell {
-            name = "Lojinha da Carlota";
+            name = "Rawcode Brothers";
             packages = with pkgs; [
               nodejs_24
               bun
