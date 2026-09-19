@@ -1,12 +1,13 @@
 ---
-import type { Project } from '@/data/site';
+import type { Project } from '@/i18n';
 
 interface Props {
   project: Project;
+  statusLabel: string;
 }
 
-const { project } = Astro.props;
-const live = project.status === 'no ar';
+const { project, statusLabel } = Astro.props;
+const live = project.live;
 ---
 
 <a
@@ -37,7 +38,7 @@ const live = project.status === 'no ar';
     <span
       class={`h-1.5 w-1.5 rounded-full ${live ? 'bg-brand' : 'bg-muted/50'}`}
       aria-hidden="true"></span>
-    <span class="font-mono text-xs text-muted">{project.status}</span>
+    <span class="font-mono text-xs text-muted">{statusLabel}</span>
   </div>
 
   <p class="mt-4 flex-1 text-body text-muted">{project.summary}</p>
