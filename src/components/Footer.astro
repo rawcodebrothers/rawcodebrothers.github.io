@@ -1,7 +1,13 @@
 ---
 import Logo from '@/components/Logo.astro';
-import { navLinks, site } from '@/data/site';
+import { getContent, site, type Locale } from '@/i18n';
 
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getContent(locale);
 const year = new Date().getFullYear();
 ---
 
@@ -15,11 +21,11 @@ const year = new Date().getFullYear();
 
       <div class="flex flex-wrap gap-x-12 gap-y-8 sm:gap-16">
         <div>
-          <p class="eyebrow">Site</p>
+          <p class="eyebrow">{t.footer.site}</p>
           <ul class="mt-4 flex flex-col gap-2.5">
             {
-              navLinks.map((link) => (
-               <li>
+              t.nav.map((link) => (
+                <li>
                   <a
                     href={link.href}
                     class="inline-block text-sm text-muted transition-all duration-300 hover:translate-x-1 hover:text-foreground"
@@ -33,15 +39,10 @@ const year = new Date().getFullYear();
         </div>
 
         <div>
-          <p class="eyebrow">Contato</p>
+          <p class="eyebrow">{t.footer.contact}</p>
           <ul class="mt-4 flex flex-col gap-2.5">
             <li>
-              <a
-                href={`mailto:${site.email}`}
-                class="nav-label"
-              >
-                {site.email}
-              </a>
+              <a href={`mailto:${site.email}`} class="nav-label">{site.email}</a>
             </li>
             <li>
               <a
@@ -59,7 +60,7 @@ const year = new Date().getFullYear();
     </div>
 
     <p class="mt-14 border-t border-border-subtle pt-8 font-mono text-xs text-muted/70">
-      © {year} {site.name}. Todos os direitos reservados.
+      © {year} {site.name}. {t.footer.rights}
     </p>
   </div>
 </footer>
