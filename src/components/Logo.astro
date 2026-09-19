@@ -21,7 +21,7 @@ const icon = variant === 'lockup' ? logo.icon : undefined;
 
 const round = (value: number): string => `${Math.round(value * 100) / 100}px`;
 const wordSize = round(size * 0.42);
-const labsSize = round(size * 0.235);
+const subSize = round(size * 0.235);
 const gap = round(size * 0.3);
 ---
 
@@ -33,7 +33,7 @@ const gap = round(size * 0.3);
     >
       <LogoIcon size={size} />
       <span class="flex flex-col justify-center">
-        <span class="sr-only">Raw Code Labs</span>
+        <span class="sr-only">Raw Code Brothers</span>
         <span
           aria-hidden="true"
           class="font-display font-semibold uppercase leading-none text-foreground"
@@ -44,16 +44,16 @@ const gap = round(size * 0.3);
         <span
           aria-hidden="true"
           class="font-mono uppercase leading-none text-brand"
-          style={`font-size: ${labsSize}; letter-spacing: 0.38em; margin-top: ${round(size * 0.11)};`}
+          style={`font-size: ${subSize}; letter-spacing: 0.6em; margin-top: ${round(size * 0.11)};`}
         >
-          Labs
+          Brothers
         </span>
       </span>
     </span>
   ) : (
     <img
       src={logo.stacked.src}
-      alt="Raw Code Labs"
+      alt="Raw Code Brothers"
       width={logo.stacked.width}
       height={logo.stacked.height}
       style={`height: ${round(size)}; width: auto;`}
