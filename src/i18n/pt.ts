@@ -4,9 +4,9 @@ export const pt: Content = {
   htmlLang: "pt-BR",
   label: "Português",
   meta: {
-    title: "Raw Code Brothers — Software sob medida",
+    title: "Raw Code Brothers — IA aplicada para empresas B2B",
     description:
-      "Estúdio de software que constrói produtos sob medida para empresas e microempreendedores. Arquitetura moderna, código legível e entrega contínua.",
+      "Desenvolvemos agentes e automações de IA sob medida para empresas B2B. Integrados aos seus sistemas, com resultado medido e monitoramento em produção.",
     ogImage: "/og.png",
     ogLocale: "pt_BR",
   },
@@ -16,7 +16,7 @@ export const pt: Content = {
     home: "início",
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
-    contact: "FALAR COM O TIME",
+    contact: "PEDIR DIAGNÓSTICO",
     seeProjects: "VER PROJETOS",
     statusLive: "no ar",
     statusBuilding: "em construção",
@@ -33,69 +33,77 @@ export const pt: Content = {
     { label: "Time", href: "#time" },
   ],
   hero: {
-    eyebrow: "Software de alto nível",
-    titleLead: "Software sob medida, escrito por quem",
-    titleAccent: "lê o código depois.",
+    eyebrow: "IA aplicada para empresas B2B",
+    titleLead: "Sua empresa já testou IA.",
+    titleAccent: "A gente coloca para funcionar.",
     body: [
-      "Construímos produtos para empresas e microempreendedores.",
-      "Arquitetura moderna, tipagem de ponta a ponta e testes automatizados.",
+      "Desenvolvemos agentes e automações sob medida para empresas B2B.",
+      "Integrados aos seus sistemas, medidos em horas e reais economizados, monitorados em produção.",
     ],
-    bodyStrong: "Sem ruído, só código.",
+    bodyStrong: "Sem hype. IA em produção.",
   },
   sections: {
     services: {
       eyebrow: "Serviços",
       title: "O que a gente entrega",
-      lead: "Quatro frentes de trabalho. Cada projeto usa uma ou várias, conforme o problema exige.",
+      lead: "Do diagnóstico à IA rodando na operação. Você começa pela etapa que faz sentido hoje.",
     },
     process: {
       eyebrow: "Processo",
       title: "Como a gente trabalha",
-      lead: "Três fases, do primeiro contato ao produto no ar. De um lado o jeito de sempre, do outro o nosso.",
+      lead: "Três fases, da ideia à IA em produção. De um lado o piloto que não sai do lugar, do outro o nosso jeito.",
     },
     projects: {
       eyebrow: "Projetos",
       title: "O que já está rodando",
-      lead: "Produtos que construímos e mantemos. Alguns para clientes, outros nossos.",
+      lead: "Sistemas que construímos e mantemos em produção. Alguns para clientes, outros nossos.",
     },
     team: {
       eyebrow: "Time",
       title: "Quem está por trás",
-      lead: "Dois engenheiros com mais de vinte anos somados de código em produção. Você fala direto com quem escreve.",
+      lead: "Dois engenheiros com mais de vinte anos somados de software em produção. Você fala direto com quem constrói a sua IA.",
     },
   },
   services: [
     {
-      name: "Produto sob medida",
+      name: "Diagnóstico de IA",
       summary:
-        "Do primeiro rascunho ao ar. Descobrimos o problema, cortamos o escopo até o essencial e entregamos em ciclos curtos.",
-      bullets: ["Descoberta e escopo", "Design de produto", "Entrega contínua"],
-    },
-    {
-      name: "Backend e integrações",
-      summary:
-        "APIs, filas e integrações que aguentam carga real. Tipagem de ponta a ponta, testes automatizados e observabilidade desde o primeiro dia.",
+        "Mapeamos os processos da sua operação e mostramos onde a IA dá retorno. Você recebe o ganho estimado, o custo e um plano, com preço fechado.",
       bullets: [
-        "APIs e arquitetura orientada a eventos",
-        "Integrações e pagamentos",
-        "Testes e monitoramento",
+        "Mapa de processos",
+        "Ganho e custo estimados",
+        "Plano de implantação",
       ],
     },
     {
-      name: "Automação com IA",
+      name: "Agentes e automação",
       summary:
-        "Classificação de documentos, extração de dados e fluxos que tiram o trabalho repetitivo da mão de quem produz.",
+        "Agentes que leem documentos, respondem clientes e executam tarefas de backoffice. Sua equipe sai do trabalho repetitivo e confere só o que precisa de decisão.",
       bullets: [
-        "Classificação de documentos",
-        "Fluxos automatizados",
-        "Onboarding e KYC",
+        "Leitura e extração de documentos",
+        "Atendimento no WhatsApp",
+        "Fluxos de backoffice",
       ],
     },
     {
-      name: "Resgate de sistema",
+      name: "IA conectada aos seus dados",
       summary:
-        "Assumimos o código que ninguém quer tocar. Cobrimos com testes, medimos o que quebra e voltamos a entregar sem susto.",
-      bullets: ["Auditoria técnica", "Cobertura de testes", "Migração gradual"],
+        "A IA só ajuda quando enxerga o que a empresa sabe. Conectamos ERP, CRM, planilhas e documentos internos, com controle de acesso e LGPD.",
+      bullets: [
+        "Integração com ERP e CRM",
+        "Busca em documentos internos",
+        "Controle de acesso e LGPD",
+      ],
+    },
+    {
+      name: "IA em produção",
+      summary:
+        "Depois do lançamento, a IA precisa de cuidado. Medimos o acerto das respostas, monitoramos erros e controlamos o custo por tarefa. Também assumimos pilotos que pararam no meio do caminho.",
+      bullets: [
+        "Avaliação contínua das respostas",
+        "Monitoramento e custo por tarefa",
+        "Resgate de piloto parado",
+      ],
     },
   ],
   phases: [
@@ -103,39 +111,30 @@ export const pt: Content = {
       call: "init()",
       title: "Antes da primeira linha",
       usual:
-        "Orçamento por chute e escopo que só existe na conversa. O preço muda no meio do caminho e ninguém sabe dizer quando termina.",
-      ours: "Escopo escrito, com o que entra e o que fica de fora. Preço e prazo fechados antes de começar.",
+        "Uma ideia de IA sem métrica de sucesso. Ninguém sabe dizer quanto a empresa vai ganhar nem quanto vai custar.",
+      ours: "Diagnóstico com o processo escolhido, o ganho estimado e o que fica de fora. Preço e prazo fechados antes de começar.",
     },
     {
       call: "build()",
-      title: "Enquanto o produto cresce",
+      title: "Enquanto a IA toma forma",
       usual:
-        "Semanas de silêncio e um relatório que você não tem como verificar. Quando aparece algo para ver, mudar já saiu caro.",
-      ours: "Ambiente no ar desde a primeira semana. Você usa o que já está pronto e corrige o rumo enquanto ainda é barato.",
+        "Uma demonstração bonita com dados de exemplo. Quando entram os dados reais, a IA erra e o projeto para no piloto.",
+      ours: "Piloto com os seus dados reais desde a primeira semana. Você mede o acerto e corrige o rumo enquanto ainda é barato.",
     },
     {
       call: "ship()",
-      title: "Depois que entra no ar",
+      title: "Depois que entra na operação",
       usual:
-        "O código é entregue e o problema passa a ser seu. Sem testes e sem monitoramento, a falha aparece pela boca do cliente.",
-      ours: "Testes automatizados e monitoramento de erros desde o primeiro dia. A gente descobre a falha antes de você.",
+        "A IA erra e ninguém percebe até o cliente reclamar. O custo de uso cresce sem controle.",
+      ours: "Avaliação automática das respostas, monitoramento de erros e custo por tarefa. A gente descobre a falha antes de você.",
     },
   ],
   projects: [
     {
-      name: "Lojinha da Carlota",
-      summary:
-        "Loja de cosméticos que vende sem checkout. A cliente monta o carrinho no catálogo e fecha o pedido pelo WhatsApp, então quem vende não precisa administrar pagamento online nem conciliar recebimento.",
-      tags: ["Astro", "React", "Tailwind", "Cloudflare Pages"],
-      href: "https://lojinhadacarlota.app/",
-      live: true,
-      kind: "client",
-    },
-    {
       name: "Sunshine Contabilidade",
       summary:
-        "Presença digital de um escritório contábil com mais de 500 clientes. Apresenta os serviços e capta contato, com estrutura de conteúdo feita para ranquear nas buscas da região.",
-      tags: ["Astro", "TypeScript", "SEO"],
+        "Portal B2B de um escritório contábil com mais de 500 empresas clientes. Uma IA lê cada guia e preenche empresa, vencimento e valor sozinha. Cada empresa vê só os seus documentos e recebe aviso de documento novo e lembrete de vencimento pelo WhatsApp, com auditoria de acesso e LGPD.",
+      tags: ["IA", "WhatsApp", "Hono", "PostgreSQL", "Cloudflare R2", "LGPD"],
       href: "https://www.sunshinecontabilidade.com/",
       live: true,
       kind: "client",
@@ -143,7 +142,7 @@ export const pt: Content = {
     {
       name: "Gramo.studio",
       summary:
-        "Estuda o que funciona em vídeo curto no Instagram, TikTok e YouTube, propõe ideias adaptadas à marca de quem usa e entrega a peça pronta para publicar. O método foi validado em dez perfis antes de virar plataforma.",
+        "Usa IA para estudar o que funciona em vídeo curto no Instagram, TikTok e YouTube, propor ideias adaptadas à marca de quem usa e entregar a peça pronta para publicar. O método foi validado em dez perfis antes de virar plataforma.",
       tags: ["Svelte", "TypeScript", "Python", "PostgreSQL", "Multi-tenant"],
       live: false,
       kind: "own",
@@ -180,8 +179,8 @@ export const pt: Content = {
       github: "simaojunior",
       avatar: "https://avatars.githubusercontent.com/u/29005352?v=4&s=160",
       bio: [
-        "Engenheiro backend sênior em São Paulo. Trabalha com TypeScript, Node.js, Elixir e PostgreSQL há mais de cinco anos.",
-        "Especializado em onboarding e KYC, classificação de documentos com IA e arquitetura orientada a eventos. Autodidata, ainda em treino.",
+        "Engenheiro backend sênior em São Paulo. Há mais de cinco anos constrói sistemas em TypeScript, Node.js, Elixir e PostgreSQL.",
+        "Especializado em IA aplicada a documentos, onboarding e KYC, e em arquitetura orientada a eventos.",
       ],
       links: [
         { label: "Site", href: "https://simaojunior.dev/" },
@@ -195,7 +194,7 @@ export const pt: Content = {
       github: "fabianoleittes",
       avatar: "https://avatars.githubusercontent.com/u/279344?v=4&s=160",
       bio: [
-        "Engenheiro de software com mais de quinze anos de estrada, focado em arquitetura de sistemas.",
+        "Engenheiro de software com mais de quinze anos de estrada, focado em arquitetura de sistemas que aguentam crescer.",
         "Faixa preta de jiu-jitsu e autor de A Mente do Tatame, onde aplica neurociência do aprendizado ao treino. A mesma disciplina que usa para depurar código.",
       ],
       links: [
@@ -209,8 +208,8 @@ export const pt: Content = {
     },
   ],
   cta: {
-    title: "Vamos conversar sobre o seu produto?",
-    body: "Conte o problema. A gente responde com o escopo, o prazo e o preço.",
+    title: "Qual processo você quer tirar da mão da sua equipe?",
+    body: "Conte o processo. Em 30 minutos, a gente diz se IA resolve, quanto custa e em quanto tempo entra no ar.",
   },
   footer: {
     site: "Site",
