@@ -4,9 +4,9 @@ export const en: Content = {
   htmlLang: "en",
   label: "English",
   meta: {
-    title: "Raw Code Brothers — Software built to fit",
+    title: "Raw Code Brothers — Applied AI for B2B companies",
     description:
-      "A software studio building tailored products for companies and small businesses. Modern architecture, readable code and continuous delivery.",
+      "We build tailored AI agents and automations for B2B companies. Connected to your systems, with measured results and monitoring in production.",
     ogImage: "/og-en.png",
     ogLocale: "en_US",
   },
@@ -16,7 +16,7 @@ export const en: Content = {
     home: "home",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    contact: "TALK TO THE TEAM",
+    contact: "BOOK A DIAGNOSIS",
     seeProjects: "SEE PROJECTS",
     statusLive: "live",
     statusBuilding: "in progress",
@@ -33,69 +33,73 @@ export const en: Content = {
     { label: "Team", href: "#team" },
   ],
   hero: {
-    eyebrow: "Software done right",
-    titleLead: "Software built to fit, written by the people who",
-    titleAccent: "read it afterwards.",
+    eyebrow: "Applied AI for B2B companies",
+    titleLead: "Your company already tried AI.",
+    titleAccent: "We make it work.",
     body: [
-      "We build products for companies and small businesses.",
-      "Modern architecture, end to end type safety and automated tests.",
+      "We build tailored AI agents and automations for B2B companies.",
+      "Connected to your systems, measured in hours and money saved, monitored in production.",
     ],
-    bodyStrong: "No noise, just raw code.",
+    bodyStrong: "No hype. AI in production.",
   },
   sections: {
     services: {
       eyebrow: "Services",
       title: "What we deliver",
-      lead: "Four lines of work. Every project uses one or several, as the problem demands.",
+      lead: "From diagnosis to AI running in your operation. You start at the step that makes sense today.",
     },
     process: {
       eyebrow: "Process",
       title: "How we work",
-      lead: "Three phases, from the first call to the product in production. On one side the usual way, on the other ours.",
+      lead: "Three phases, from the idea to AI in production. On one side the pilot that never moves, on the other our way.",
     },
     projects: {
       eyebrow: "Projects",
       title: "What is already running",
-      lead: "Products we built and still maintain. Some for clients, some our own.",
+      lead: "Systems we built and still run in production. Some for clients, some our own.",
     },
     team: {
       eyebrow: "Team",
       title: "Who is behind it",
-      lead: "Two engineers with more than twenty combined years of code in production. You talk straight to the people who write it.",
+      lead: "Two engineers with more than twenty combined years of software in production. You talk straight to the people who build your AI.",
     },
   },
   services: [
     {
-      name: "Tailored products",
+      name: "AI diagnosis",
       summary:
-        "From the first sketch to production. We find the problem, cut the scope to what matters and ship in short cycles.",
-      bullets: ["Discovery and scope", "Product design", "Continuous delivery"],
+        "We map the processes in your operation and show where AI pays off. You get the estimated gain, the cost and a plan, at a fixed price.",
+      bullets: ["Process map", "Estimated gain and cost", "Rollout plan"],
     },
     {
-      name: "Backend and integrations",
+      name: "Agents and automation",
       summary:
-        "APIs, queues and integrations that hold real load. End to end type safety, automated tests and observability from day one.",
+        "Agents that read documents, answer customers and run back office tasks. Your team leaves the repetitive work and reviews only what needs a decision.",
       bullets: [
-        "APIs and event driven architecture",
-        "Integrations and payments",
-        "Tests and monitoring",
+        "Document reading and extraction",
+        "Customer service on WhatsApp",
+        "Back office flows",
       ],
     },
     {
-      name: "AI automation",
+      name: "AI connected to your data",
       summary:
-        "Document classification, data extraction and flows that take repetitive work off the hands of the people who produce.",
+        "AI only helps when it sees what the company knows. We connect ERP, CRM, spreadsheets and internal documents, with access control and data protection.",
       bullets: [
-        "Document classification",
-        "Automated flows",
-        "Onboarding and KYC",
+        "ERP and CRM integration",
+        "Search over internal documents",
+        "Access control and LGPD",
       ],
     },
     {
-      name: "System rescue",
+      name: "AI in production",
       summary:
-        "We take on the code nobody wants to touch. We cover it with tests, measure what breaks and ship again without fear.",
-      bullets: ["Technical audit", "Test coverage", "Gradual migration"],
+        "After launch, AI needs care. We measure how often the answers are right, monitor errors and control the cost per task. We also take on pilots that stalled halfway.",
+      bullets: [
+        "Continuous answer evaluation",
+        "Monitoring and cost per task",
+        "Stalled pilot rescue",
+      ],
     },
   ],
   phases: [
@@ -103,39 +107,30 @@ export const en: Content = {
       call: "init()",
       title: "Before the first line",
       usual:
-        "A guessed quote and a scope that only exists in conversation. The price shifts halfway and nobody can say when it ends.",
-      ours: "A written scope, with what is in and what is out. Price and deadline agreed before we start.",
+        "An AI idea with no measure of success. Nobody can say how much the company will gain or how much it will cost.",
+      ours: "A diagnosis with the chosen process, the estimated gain and what is out of scope. Price and deadline agreed before we start.",
     },
     {
       call: "build()",
-      title: "While the product grows",
+      title: "While the AI takes shape",
       usual:
-        "Weeks of silence and a report you have no way to verify. By the time there is something to see, changing it costs a lot.",
-      ours: "A live environment from the first week. You use what is ready and correct the course while it is still cheap.",
+        "A polished demo on sample data. When the real data arrives, the AI gets it wrong and the project stops at the pilot.",
+      ours: "A pilot on your real data from the first week. You measure how often it is right and correct the course while it is still cheap.",
     },
     {
       call: "ship()",
-      title: "After it goes live",
+      title: "After it enters the operation",
       usual:
-        "The code is handed over and the problem becomes yours. With no tests and no monitoring, the failure arrives through your customer.",
-      ours: "Automated tests and error monitoring from day one. We find the failure before you do.",
+        "The AI gets it wrong and nobody notices until a customer complains. The usage cost grows with no control.",
+      ours: "Automatic answer evaluation, error monitoring and cost per task. We find the failure before you do.",
     },
   ],
   projects: [
     {
-      name: "Lojinha da Carlota",
-      summary:
-        "A cosmetics shop that sells without a checkout. The customer fills a cart from the catalogue and closes the order over WhatsApp, so the seller never has to run online payments or reconcile receipts.",
-      tags: ["Astro", "React", "Tailwind", "Cloudflare Pages"],
-      href: "https://lojinhadacarlota.app/",
-      live: true,
-      kind: "client",
-    },
-    {
       name: "Sunshine Contabilidade",
       summary:
-        "The digital presence of an accounting firm with more than 500 clients. It presents the services and captures leads, with a content structure built to rank in local search.",
-      tags: ["Astro", "TypeScript", "SEO"],
+        "A B2B portal for an accounting firm with more than 500 client companies. An AI reads each tax form and fills in the company, due date and amount on its own. Each company sees only its own documents and gets new-document notices and due-date reminders over WhatsApp, with an access audit log and LGPD compliance.",
+      tags: ["AI", "WhatsApp", "Hono", "PostgreSQL", "Cloudflare R2", "LGPD"],
       href: "https://www.sunshinecontabilidade.com/",
       live: true,
       kind: "client",
@@ -143,7 +138,7 @@ export const en: Content = {
     {
       name: "Gramo.studio",
       summary:
-        "It studies what works in short-form video on Instagram, TikTok and YouTube, proposes ideas adapted to the brand behind the account and delivers the asset ready to publish. The method ran on ten feeds before it became a platform.",
+        "It uses AI to study what works in short-form video on Instagram, TikTok and YouTube, propose ideas adapted to the brand behind the account and deliver the asset ready to publish. The method ran on ten feeds before it became a platform.",
       tags: ["Svelte", "TypeScript", "Python", "PostgreSQL", "Multi-tenant"],
       live: false,
       kind: "own",
@@ -180,8 +175,8 @@ export const en: Content = {
       github: "simaojunior",
       avatar: "https://avatars.githubusercontent.com/u/29005352?v=4&s=160",
       bio: [
-        "Senior backend engineer in São Paulo. Works with TypeScript, Node.js, Elixir and PostgreSQL for more than five years.",
-        "Focused on onboarding and KYC, document classification with AI and event driven architecture. Self-taught, still training.",
+        "Senior backend engineer in São Paulo. For more than five years he has built systems in TypeScript, Node.js, Elixir and PostgreSQL.",
+        "Focused on AI applied to documents, onboarding and KYC, and on event driven architecture.",
       ],
       links: [
         { label: "Site", href: "https://simaojunior.dev/" },
@@ -195,7 +190,7 @@ export const en: Content = {
       github: "fabianoleittes",
       avatar: "https://avatars.githubusercontent.com/u/279344?v=4&s=160",
       bio: [
-        "Software engineer with more than fifteen years on the road, focused on systems architecture.",
+        "Software engineer with more than fifteen years on the road, focused on the architecture of systems that hold up as they grow.",
         "Jiu-jitsu black belt and author of A Mente do Tatame, where he applies the neuroscience of learning to training. The same discipline he uses to debug code.",
       ],
       links: [
@@ -209,8 +204,8 @@ export const en: Content = {
     },
   ],
   cta: {
-    title: "Shall we talk about your product?",
-    body: "Tell us the problem. We answer with the scope, the deadline and the price.",
+    title: "Which process do you want to take off your team's hands?",
+    body: "Tell us the process. In 30 minutes, we tell you if AI solves it, what it costs and how soon it goes live.",
   },
   footer: {
     site: "Site",
